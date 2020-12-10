@@ -1,26 +1,26 @@
 {
-  "images" : [
+  "images": [
     {
-      "filename" : "Element Symbol.png",
-      "idiom" : "universal",
-      "scale" : "1x"
+      "filename": "Blast Symbol.png",
+      "idiom": "universal",
+      "scale": "1x"
     },
     {
-      "filename" : "Element Symbol@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
+      "filename": "Blast Symbol@2x.png",
+      "idiom": "universal",
+      "scale": "2x"
     },
     {
-      "filename" : "Element Symbol@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename": "Blast Symbol@3x.png",
+      "idiom": "universal",
+      "scale": "3x"
     }
   ],
-  "info" : {
-    "author" : "xcode",
-    "version" : 1
+  "info": {
+    "author": "xcode",
+    "version": 1
   },
-  "properties" : {
-    "localizable" : true
+  "properties": {
+    "localizable": true
   }
 }
