@@ -7,7 +7,7 @@
  You may obtain a copy of the License at
 
  http://www.apache.org/licenses/LICENSE-2.0
- 
+
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -206,7 +206,7 @@ extern NSString *const AppDelegateUniversalLinkDidChangeNotification;
 - (void)startDirectChatWithUserId:(NSString*)userId completion:(void (^)(void))completion;
 
 /**
- Process the fragment part of a vector.im link.
+ Process the fragment part of a vinix.im link.
 
  @param fragment the fragment part of the universal link.
  @return YES in case of processing success.

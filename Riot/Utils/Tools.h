@@ -22,7 +22,7 @@
 
 /**
  Compute the text to display user's presence
- 
+
  @param user the user. Can be nil.
  @return the string to display.
  */
@@ -38,11 +38,11 @@
 + (BOOL)isUniversalLink:(NSURL*)url;
 
 /**
- Fix a http://vector.im or http://vector.im path url.
+ Fix a http://vinix.im or http://vinix.im path url.
 
  This method fixes the issue with iOS which handles URL badly when there are several hash
  keys ('%23') in the link.
- Vector.im links have often several hash keys...
+ vinix.im links have often several hash keys...
 
  @param url a NSURL with possibly several hash keys and thus badly parsed.
  @return a NSURL correctly parsed.

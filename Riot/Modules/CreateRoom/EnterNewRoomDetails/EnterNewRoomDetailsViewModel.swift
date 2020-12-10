@@ -81,7 +81,7 @@ final class EnterNewRoomDetailsViewModel: EnterNewRoomDetailsViewModelType {
         }
         
         //  TODO: Fix below somehow
-        alias = alias.replacingOccurrences(of: ":matrix.org", with: "")
+        alias = alias.replacingOccurrences(of: ":vinix.im", with: "")
         if let homeserver = session.credentials.homeServer {
             alias = alias.replacingOccurrences(of: ":" + homeserver, with: "")
         }

@@ -2897,7 +2897,7 @@
         {
             shouldDoAction = NO;
             
-            // iOS Patch: fix vector.im urls before using it
+            // iOS Patch: fix vinix.im urls before using it
             NSURL *fixedURL = [Tools fixURLWithSeveralHashKeys:url];
             
             [[AppDelegate theDelegate] handleUniversalLinkFragment:fixedURL.fragment];
