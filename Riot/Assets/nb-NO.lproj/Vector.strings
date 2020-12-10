@@ -49,7 +49,8 @@
 "auth_repeat_password_placeholder" = "Gjenta passord";
 "auth_repeat_new_password_placeholder" = "Bekreft ditt nye passord";
 "auth_home_server_placeholder" = "URL (f.eks. https://matrix.org)";
-"auth_identity_server_placeholder" = "URL (f.eks. https://vector.im)";
+"auth_identity_server_placeholder" = "URL (f.eks. https://vinix.im)";
+"auth_home_server_label" = "Realm:";
 "auth_missing_password" = "Manglende passord";
 "auth_missing_email" = "Manglende E-postadresse";
 "auth_missing_phone" = "Manglende telefonnummer";
@@ -409,8 +410,8 @@
 // MARK: Clients
 "client_desktop_name" = "Riot Desktop";
 "client_web_name" = "Riot Web";
-"client_ios_name" = "Element iOS";
-"client_android_name" = "Element Android";
+"client_ios_name" = "Blast iOS";
+"client_android_name" = "Blast Android";
 "auth_login_single_sign_on" = "Logg inn med én innlogging";
 "auth_invalid_login_param" = "Feil brukernavn og/eller passord";
 "auth_invalid_user_name" = "Brukernavn kan bare inneholde bokstaver, tall, punktum, bindestrek og understrek";

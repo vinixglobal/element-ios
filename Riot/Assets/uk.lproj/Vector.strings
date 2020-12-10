@@ -52,7 +52,8 @@
 "auth_repeat_password_placeholder" = "Повторіть пароль";
 "auth_repeat_new_password_placeholder" = "Підтвердьте новий пароль";
 "auth_home_server_placeholder" = "URL (наприклад, https://matrix.org)";
-"auth_identity_server_placeholder" = "URL (наприклад, https://vector.im)";
+"auth_identity_server_placeholder" = "URL (наприклад, https://vinix.im)";
+"auth_home_server_label" = "Realm:";
 "auth_invalid_login_param" = "Неправильне ім'я користувача або пароль";
 "auth_invalid_user_name" = "Імена користувачів можуть містити лише літери, цифри, крапки, дефіси й підкреслення";
 "auth_invalid_password" = "Пароль надто короткий (мінімум 6 знаків)";
@@ -135,9 +136,9 @@
 "room_creation_wait_for_creation" = "Триває створення кімнати. Будь ласка, зачекайте.";
 "skip" = "Пропустити";
 // MARK: Clients
-"client_desktop_name" = "Element Desktop";
-"client_web_name" = "Element Web";
-"client_ios_name" = "Element iOS";
+"client_desktop_name" = "Blast Desktop";
+"client_web_name" = "Blast Web";
+"client_ios_name" = "Blast iOS";
 "auth_login_single_sign_on" = "Увійти за допомогою єдиного входу";
 "room_creation_invite_another_user" = "Пошук / запрошення по ідентифікатору користувача, імені або адреси електронної пошти";
 "room_creation_error_invite_user_by_email_without_identity_server" = "Сервер ідентифікації не налаштовано, тому ви не можете додати учасника з е-поштою.";
@@ -162,7 +163,7 @@
 "people_no_conversation" = "Нема балачок";
 "room_participants_leave_prompt_msg_for_dm" = "Ви впевненні, що бажаєте залишити?";
 "room_participants_leave_prompt_title_for_dm" = "Залишити";
-"client_android_name" = "Element Android";
+"client_android_name" = "Blast Android";
 "store_promotional_text" = "Додаток для чату та сумісної роботи, що зберігає конфіденційність у відкритій мережі. Децентралізований, щоб надати вам контроль над даними. Без обробки даних, без бекдорів, без доступу для третіх сторін.";
 "settings_three_pids_management_information_part3" = ".";
 "settings_three_pids_management_information_part1" = "Керування адресами електронної пошти чи номерами телефонів, які ви можете використовувати для входу або відновлення акаунту. Контролюйте хто і як може вас знайти ";
@@ -203,7 +204,7 @@
 
 // Chat participants
 "room_participants_title" = "Учасники";
-"contacts_address_book_permission_denied" = "Ви не дозволили Element отримати доступ до локальних контактів";
+"contacts_address_book_permission_denied" = "Ви не дозволили Blast отримати доступ до локальних контактів";
 "contacts_address_book_permission_required" = "Необхідний дозвіл на доступ до локальних контактів";
 "contacts_address_book_no_contact" = "Немає локальних контактів";
 "contacts_address_book_matrix_users_toggle" = "Тільки користувачі Matrix";

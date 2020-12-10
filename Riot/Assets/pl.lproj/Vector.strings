@@ -49,6 +49,7 @@
 "auth_repeat_new_password_placeholder" = "Potwierdź swoje nowe hasło";
 "auth_home_server_placeholder" = "URL (np. https://matrix.org)";
 "auth_identity_server_placeholder" = "Adres URL (np. https://matrix.org)";
+"auth_home_server_label" = "Realm:";
 "auth_invalid_login_param" = "Nieprawidłowa nazwa użytkownika i/lub hasło";
 "auth_invalid_user_name" = "Nazwa użytkownika może zawierać tylko litery, cyfry, kropki, myślniki i podkreślenia";
 "auth_invalid_email" = "To nie wygląda na poprawny adres e-mail";
@@ -353,7 +354,7 @@
 "deactivate_account_password_alert_message" = "Aby kontynuować, proszę wprowadzić swoje hasło";
 // Re-request confirmation dialog
 "rerequest_keys_alert_title" = "Prośba wysłana";
-"rerequest_keys_alert_message" = "Uruchom proszę Element na innym urządzeniu, które może odszyfrować wiadomość, aby wysłać klucze do tego urządzenia.";
+"rerequest_keys_alert_message" = "Uruchom proszę Blast na innym urządzeniu, które może odszyfrować wiadomość, aby wysłać klucze do tego urządzenia.";
 "on" = "Włączone";
 "video" = "Obraz";
 "auth_forgot_password" = "Zapomniałeś(-aś) hasło?";
@@ -460,7 +461,7 @@
 "bug_report_title" = "Zgłoś błąd";
 "e2e_need_log_in_again" = "Należy się ponownie zalogować w celu wygenerowania kluczy szyfrowania end-to-end dla tego urządzenia i wysłania klucza publicznego do Twojego serwera domowego.\nJest to jednorazowe działanie; przepraszamy za trudności.";
 // Crypto
-"e2e_enabling_on_app_update" = "Element obsługuje już szyfrowanie end-to-end (E2E), ale musisz zalogować się ponownie, aby je włączyć.\n\nMożesz to zrobić teraz lub później z poziomu ustawień aplikacji.";
+"e2e_enabling_on_app_update" = "Blast obsługuje już szyfrowanie end-to-end (E2E), ale musisz zalogować się ponownie, aby je włączyć.\n\nMożesz to zrobić teraz lub później z poziomu ustawień aplikacji.";
 // No VoIP support
 "no_voip_title" = "Połączenie przychodzące";
 "call_incoming_video" = "Przychodzące połączenie wideo…";
@@ -487,7 +488,7 @@
 "bug_crash_report_title" = "Raport o awarii";
 // String for App Store
 "store_short_description" = "Bezpieczny, zdecentralizowany czat/VoIP";
-"store_full_description" = "Komunikuj się, po swojemu.\n\nAplikacja do czatowania, pod Twoją kontrolą i całkowicie elastyczna. Element pozwala Ci komunikować się tak, jak chcesz. Stworzona dla [matrixa] - otwartego standardu, zdecentralizowanej komunikacji.\n\nZałóż darmowe konto na matrix.org, załatw swój własny serwer na https://ems.element.io lub skorzystaj z innego serwera Matrix.\n\nDlaczego warto wybrać Element?\n\nPEŁNA KOMUNIKACJA: Zbuduj pokoje wokół swoich zespołów, przyjaciół, społeczności - jak chcesz! Czat, udostępnianie plików, dodawanie widgetów i wykonywanie połączeń głosowych i wideo - wszystko to za darmo.\n\n\nPOTĘŻNA INTEGRACJA: Użyj Element z narzędziami, które znasz i kochasz. Dzięki Element możesz nawet rozmawiać z użytkownikami i grupami z innymi aplikacjami do czatowania.\n\nPRYWATNY I BEZPIECZNY: Trzymaj swoje rozmowy w tajemnicy. Najnowocześniejsze szyfrowanie typu end-to-end zapewnia prywatną komunikację.\n\nOTWARTY, NIE ZAMKNIĘTY: Open source i zbudowany na Matrixie. Miej swoje dane pod kontrolą poprzez hosting własnego serwera lub wybranie serwera, któremu ufasz.\n\nGDZIEKOLWIEK JESTEŚ: Bądź w kontakcie gdziekolwiek jesteś, dzięki w pełni zsynchronizowanej historii wiadomości na wszystkich Twoich urządzeniach i online na https://app.element.io.";
+"store_full_description" = "Komunikuj się, po swojemu.\n\nAplikacja do czatowania, pod Twoją kontrolą i całkowicie elastyczna. Blast pozwala Ci komunikować się tak, jak chcesz. Stworzona dla [matrixa] - otwartego standardu, zdecentralizowanej komunikacji.\n\nZałóż darmowe konto na matrix.org, załatw swój własny serwer na https://staging.vinix.im lub skorzystaj z innego serwera Matrix.\n\nDlaczego warto wybrać Blast?\n\nPEŁNA KOMUNIKACJA: Zbuduj pokoje wokół swoich zespołów, przyjaciół, społeczności - jak chcesz! Czat, udostępnianie plików, dodawanie widgetów i wykonywanie połączeń głosowych i wideo - wszystko to za darmo.\n\n\nPOTĘŻNA INTEGRACJA: Użyj Blast z narzędziami, które znasz i kochasz. Dzięki Blast możesz nawet rozmawiać z użytkownikami i grupami z innymi aplikacjami do czatowania.\n\nPRYWATNY I BEZPIECZNY: Trzymaj swoje rozmowy w tajemnicy. Najnowocześniejsze szyfrowanie typu end-to-end zapewnia prywatną komunikację.\n\nOTWARTY, NIE ZAMKNIĘTY: Open source i zbudowany na Matrixie. Miej swoje dane pod kontrolą poprzez hosting własnego serwera lub wybranie serwera, któremu ufasz.\n\nGDZIEKOLWIEK JESTEŚ: Bądź w kontakcie gdziekolwiek jesteś, dzięki w pełni zsynchronizowanej historii wiadomości na wszystkich Twoich urządzeniach i online na https://staging.vinix.im.";
 "room_creation_make_public_prompt_msg" = "Jesteś pewien, że chcesz zrobić ten czat publiczny? Każdy może czytać Twoje wiadomości i dołączyć do czatu.";
 "directory_search_fail" = "Nie udało się pobrać danych";
 "contacts_address_book_permission_required" = "Uprawnienie jest wymagane żeby uzyskać dostęp do kontaktów lokalnych";
@@ -505,7 +506,7 @@
 "settings_enable_push_notif" = "Powiadomienia na tym urządzeniu";
 "settings_global_settings_info" = "Globalne ustawienia powiadomień są dostępne na Twoim kliencie internetowym %@";
 "settings_on_denied_notification" = "Powiadomienia są odrzucane w %@, proszę zezwól na nie w ustawieniach urządzenia";
-"settings_callkit_info" = "Odbieraj połączenia przychodzące na ekranie blokady. Zobacz swoje połęczenia Element w historii połączeń w systemie. Jeśli usługa iCloud jest włączona, historia połączeń zostanie udostępniona Apple.";
+"settings_callkit_info" = "Odbieraj połączenia przychodzące na ekranie blokady. Zobacz swoje połęczenia Blast w historii połączeń w systemie. Jeśli usługa iCloud jest włączona, historia połączeń zostanie udostępniona Apple.";
 "settings_ui_theme_picker_message" = "\"Auto\" używa ustawienia \"Odwróć kolory\" urządzenia";
 "close" = "Zamknij";
 "auth_softlogout_sign_in" = "Zaloguj się";
@@ -813,10 +814,10 @@
 // Accessibility
 "accessibility_checkbox_label" = "pole wyboru";
 // MARK: Clients
-"client_desktop_name" = "Element Desktop";
-"client_web_name" = "Element Web";
-"client_ios_name" = "Element iOS";
-"client_android_name" = "Element Android";
+"client_desktop_name" = "Blast Desktop";
+"client_web_name" = "Blast Web";
+"client_ios_name" = "Blast iOS";
+"client_android_name" = "Blast Android";
 "room_participants_action_section_security" = "Bezpieczeństwo";
 "room_participants_action_security_status_verified" = "Zweryfikowany";
 "room_participants_action_security_status_verify" = "Zweryfikuj";

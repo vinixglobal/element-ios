@@ -58,6 +58,7 @@
 "auth_repeat_new_password_placeholder" = "Bevestigt je nieuw paswoord";
 "auth_home_server_placeholder" = "URL (bv. https://matrix.org)";
 "auth_identity_server_placeholder" = "URL (bv. https://matrix.org)";
+"auth_home_server_label" = "Realm:";
 "auth_invalid_login_param" = "Verkeerd(e) gebrukersnoame en/of paswoord";
 "auth_invalid_user_name" = "Gebrukersnoamn meugn alleene mo letters, cyfers, puntn, koppelteekns en underscores bevattn";
 "auth_invalid_password" = "’t Paswoord is te kort (min 6)";

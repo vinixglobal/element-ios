@@ -74,8 +74,9 @@
 "auth_phone_placeholder" = "Telefonnumero";
 "auth_repeat_password_placeholder" = "Ripeti pasvorton";
 "auth_repeat_new_password_placeholder" = "Konfirmi vian pasvorton";
-"auth_home_server_placeholder" = "URL (ekz. https://matrix.org)";
-"auth_identity_server_placeholder" = "URL (ekz. https://vector.im)";
+"auth_home_server_placeholder" = "URL (ekz. https://vinix.im)";
+"auth_identity_server_placeholder" = "URL (ekz. https://vinix.im)";
+"auth_home_server_label" = "Realm:";
 "auth_invalid_login_param" = "Malĝusta uzantnomo kaj/aŭ pasvorto";
 "auth_invalid_user_name" = "Uzantaj nomoj povas enhavi nur literojn, ciferojn, punktojn kaj strekojn";
 "auth_invalid_password" = "Pasvorto tro mallonga (minuso 6)";
@@ -313,8 +314,8 @@
 "joined" = "Aliĝita";
 "device_verification_self_verify_wait_recover_secrets_with_passphrase" = "Uzi rehavajn pasfrazon aŭ ŝlosilon";
 "device_verification_self_verify_wait_recover_secrets_without_passphrase" = "Uzi rehavan ŝlosilon";
-"device_verification_self_verify_wait_additional_information" = "Ĉi tio funkcias por Element kaj aliaj klientoj kapablaj je delegaj subskriboj";
-"device_verification_self_verify_wait_information" = "Kontrolu ĉi tiun saluton per unu el viaj aliaj salutaĵoj, dononte al ĝi aliron al ĉifritaj mesaĝoj.\n\nUzu la plej freŝan version de Element per viaj aliaj aparatoj:";
+"device_verification_self_verify_wait_additional_information" = "Ĉi tio funkcias por Blast kaj aliaj klientoj kapablaj je delegaj subskriboj";
+"device_verification_self_verify_wait_information" = "Kontrolu ĉi tiun saluton per unu el viaj aliaj salutaĵoj, dononte al ĝi aliron al ĉifritaj mesaĝoj.\n\nUzu la plej freŝan version de Blast per viaj aliaj aparatoj:";
 "device_verification_self_verify_wait_new_sign_in_title" = "Kontrolu ĉi tiun saluton";
 
 // MARK: Self verification wait
@@ -348,7 +349,7 @@
 "device_verification_incoming_description_2" = "Kontrolo de ĉi tiu salutaĵo markos ĝin fidata, kaj markos ankaŭ vian salutaĵon fidata por la kunulo.";
 "secure_key_backup_setup_intro_use_security_key_title" = "Uzi Sekurecan ŝlosilon";
 "secure_key_backup_setup_intro_info" = "Malhelpu perdon de aliro al ĉifritaj mesaĝoj kaj datumoj per savkopiado de ŝlosiloj al via servilo.";
-"rerequest_keys_alert_message" = "Bonvolu ruli Elementon per alia aparato, kiu povas malĉifri la mesaĝon, por ke ĝi povu resendi la ŝlosilojn al ĉi tiu salutaĵo.";
+"rerequest_keys_alert_message" = "Bonvolu ruli Blast per alia aparato, kiu povas malĉifri la mesaĝon, por ke ĝi povu resendi la ŝlosilojn al ĉi tiu salutaĵo.";
 
 // Re-request confirmation dialog
 "rerequest_keys_alert_title" = "Peto sendiĝis";
@@ -453,7 +454,7 @@
 "e2e_need_log_in_again" = "Vi bezonas resaluti por estigi tutvoje ĉifrajn ŝlosilojn porĉi tiu salutaĵo, kaj sendi la publikan ŝlosilon al via hejmservilo.\nTio necesas nur unufoje; pardonu la ĝenon.";
 
 // Crypto
-"e2e_enabling_on_app_update" = "Element nun subtenas tutvojan ĉifradon, sed vi bezonas resaluti por ŝalti ĝin.\n\nVi povas fari tion nun, aŭ pli poste per agordoj de la aplikaĵo.";
+"e2e_enabling_on_app_update" = "Blast nun subtenas tutvojan ĉifradon, sed vi bezonas resaluti por ŝalti ĝin.\n\nVi povas fari tion nun, aŭ pli poste per agordoj de la aplikaĵo.";
 
 // Crash report
 "google_analytics_use_prompt" = "Ĉu vi volus nin helpi pri plibonigoj al %@ per memaga kaj sennoma raportado de fiaskoj kaj datumoj pri uzado?";
@@ -504,7 +505,7 @@
 
 // Events formatter
 "event_formatter_member_updates" = "%tu ŝanĝoj de aneco";
-"directory_server_placeholder" = "matrix.org";
+"directory_server_placeholder" = "vinix.im";
 "directory_server_type_homeserver" = "Entajpu hejmservilon, kies publikaj ĉambroj listiĝu";
 "directory_server_all_rooms" = "Ĉiuj ĉambroj de la servilo %@";
 "directory_server_picker_title" = "Elektu katalogon";
@@ -587,7 +588,7 @@
 // MARK: - Room Info
 
 "room_info_list_one_member" = "1 ĉambrano";
-"create_room_placeholder_address" = "#provachambro:matrix.org";
+"create_room_placeholder_address" = "#provachambro:vinix.im";
 "create_room_section_header_address" = "Adreso de ĉambro";
 "create_room_show_in_directory" = "Montri la ĉambron en la katalogo";
 "create_room_section_footer_type" = "Oni aliĝas al privata ĉambro nur per invito al tiu ĉambro.";
@@ -656,7 +657,7 @@
 
 // MARK: - Major update
 
-"major_update_title" = "Riot nun estas Element";
+"major_update_title" = "Riot nun estas Blast";
 "cross_signing_setup_banner_subtitle" = "Kontrolu aliajn viajn aparatojn pli facile";
 
 // MARK: - Cross-signing
@@ -975,7 +976,7 @@
 "settings_integrations_allow_button" = "Administri kunigojn";
 "settings_calls_stun_server_fallback_description" = "Permesi repaŝan servilon %@ asistan je vokoj, kiam la hejmservilo ne provizas servilon (via IP-adreso ne doniĝus dum voko).";
 "settings_calls_stun_server_fallback_button" = "Permesi repaŝan servilon asistan je vokoj";
-"settings_callkit_info" = "Ricevi vokpetojn ĉe via ŝlosa ekrano. Vidi viajn vokojn de Element ĉe la sistema vokhistorio. Se iCloud estas ŝaltita, la vokhistorio doniĝas ankaŭ al Apple.";
+"settings_callkit_info" = "Ricevi vokpetojn ĉe via ŝlosa ekrano. Vidi viajn vokojn de Blast ĉe la sistema vokhistorio. Se iCloud estas ŝaltita, la vokhistorio doniĝas ankaŭ al Apple.";
 "settings_on_denied_notification" = "Sciigo por %s estas malŝaltitaj, bonvole permesu ilin per la agordoj de via aparato";
 "settings_pin_rooms_with_unread" = "Alpingli ĉambrojn kun nelegitaj mesaĝoj";
 "settings_pin_rooms_with_missed_notif" = "Alpinigli ĉambrojn kun nerimarkitaj sciigoj";

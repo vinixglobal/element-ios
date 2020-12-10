@@ -52,7 +52,8 @@
 "auth_repeat_password_placeholder" = "Repita a senha";
 "auth_repeat_new_password_placeholder" = "Confirme sua nova senha";
 "auth_home_server_placeholder" = "Endereço (por exemplo: https://matrix.org)";
-"auth_identity_server_placeholder" = "Endereço (por exemplo: https://vector.im)";
+"auth_identity_server_placeholder" = "Endereço (por exemplo: https://vinix.im)";
+"auth_home_server_label" = "Realm:";
 "auth_invalid_login_param" = "Nome de usuário e/ou senha incorretos";
 "auth_invalid_user_name" = "Nomes de usuários podem conter apenas letras, números, pontos, hifens e sublinhados";
 "auth_invalid_password" = "Senha muito curta (mín. 6 letras)";
@@ -142,7 +143,7 @@
 "contacts_address_book_matrix_users_toggle" = "Apenas usuários na Matrix";
 "contacts_address_book_no_contact" = "Nenhum contato local";
 "contacts_address_book_permission_required" = "Permissão necessária para acessar contatos locais";
-"contacts_address_book_permission_denied" = "Você não permitiu que o Element acesse seus contatos locais";
+"contacts_address_book_permission_denied" = "Você não permitiu que o Blast acesse seus contatos locais";
 "contacts_user_directory_section" = "LISTA DE CONTATOS";
 "contacts_user_directory_offline_section" = "LISTA DE CONTATOS (offline)";
 // Chat participants
@@ -320,7 +321,7 @@
 "settings_global_settings_info" = "Configurações gerais de notificação estão disponíveis no %@ Web";
 "settings_on_denied_notification" = "As notificações são negadas para %@, permita-as nas configurações do seu aparelho";
 "settings_enable_callkit" = "Chamada integrada";
-"settings_callkit_info" = "Receba chamadas na sua tela de bloqueio. Veja suas chamadas do Element no histórico de chamadas do sistema. Se o iCloud estiver ativado, esse histórico de chamadas será compartilhado com a Apple.";
+"settings_callkit_info" = "Receba chamadas na sua tela de bloqueio. Veja suas chamadas do Blast no histórico de chamadas do sistema. Se o iCloud estiver ativado, esse histórico de chamadas será compartilhado com a Apple.";
 "settings_ui_language" = "Idioma";
 "settings_ui_theme" = "Tema";
 "settings_ui_theme_auto" = "Automático";
@@ -499,7 +500,7 @@
 // Crash report
 "google_analytics_use_prompt" = "Você gostaria de ajudar a melhorar o %@ informando automaticamente relatórios de falhas e dados de uso anônimos?";
 // Crypto
-"e2e_enabling_on_app_update" = "O Element agora suporta criptografia de ponta a ponta, mas você precisa fazer login novamente para ativá-la.↵\n↵\nVocê pode fazer isso agora ou mais tarde nas configurações do aplicativo.";
+"e2e_enabling_on_app_update" = "O Blast agora suporta criptografia de ponta a ponta, mas você precisa fazer login novamente para ativá-la.↵\n↵\nVocê pode fazer isso agora ou mais tarde nas configurações do aplicativo.";
 "e2e_need_log_in_again" = "Você precisa fazer login novamente para gerar chaves de criptografia de ponta a ponta para esta sessão, e enviar a chave pública ao seu servidor local.↵\nIsso ocorre apenas dessa vez; desculpe pela inconveniência.";
 // Bug report
 "bug_report_title" = "Relatório de erro";
@@ -555,10 +556,10 @@
 "deactivate_account_password_alert_message" = "Para continuar, por favor, digite sua senha";
 // Re-request confirmation dialog
 "rerequest_keys_alert_title" = "Requisição enviada";
-"rerequest_keys_alert_message" = "Por favor, inicie o Element em outro aparelho que possa descriptografar a mensagem, de modo que ele possa enviar as chaves para esta sessão.";
+"rerequest_keys_alert_message" = "Por favor, inicie o Blast em outro aparelho que possa descriptografar a mensagem, de modo que ele possa enviar as chaves para esta sessão.";
 // String for App Store
 "store_short_description" = "Conversas e chamadas: seguras e descentralizadas";
-"store_full_description" = "O Element é um novo tipo de aplicativo de comunicação e colaboração que:↵\n↵\n1. Coloca você no controle de sua privacidade;↵\n2. Permite que você se comunique com qualquer pessoa na rede Matrix, e até mais além, integrando-se a aplicativos como o Slack;↵\n3. Protege você de publicidade, mineração de dados, backdoors e ecossistemas fechados;↵\n4. Protege você por meio da criptografia de ponta a ponta, com autoverificação para confirmar outras pessoas.↵\n↵\nO Element é completamente diferente de outros aplicativos de mensagens e colaboração porque é descentralizado e de código aberto.↵\n↵\nO Element permite que você use seu próprio servidor - ou escolha uma alternativa de armazenamento - para ter privacidade, propriedade e controle de seus dados e conversas. Dá acesso a uma rede aberta; para que você não fique falando apenas com outros usuários do Element. E é muito seguro.↵\n↵\nO Element é capaz de fazer tudo isso porque opera na rede Matrix - o padrão para comunicação aberta e descentralizada.↵\n↵\nO Element coloca você no controle, permitindo escolher quem armazena suas conversas. No aplicativo do Element, você pode optar por armazenar de diferentes maneiras:↵\n↵\n1. Obtenha uma conta gratuita no servidor público matrix.org↵\n2. Armazene sua conta automaticamente, executando um servidor em seu próprio hardware↵\n3. Inscreva-se em uma conta para um servidor personalizado, basta se inscrever na plataforma de armazenamento do Element Matrix Services↵\n↵\nPor que escolher o Element?↵\n↵\nPOSSUA SEUS DADOS: você decide onde guardar seus dados e mensagens. Você os possui e controla, e não alguma MEGA CORPORAÇÃO que vende seus dados ou dá acesso a terceiros.↵\n↵\nMENSAGEM ABERTA E COLABORAÇÃO: você pode conversar com qualquer outra pessoa na rede Matrix, esteja ela usando o Element ou outro aplicativo que se conecta na rede Matrix. E mesmo se estiverem usando um sistema de mensagens diferente, como Slack, IRC ou XMPP.↵\n↵\nSUPER SEGURO: criptografia real de ponta a ponta (somente aqueles na conversa podem descriptografar as mensagens) e autoverificação para confirmar os aparelhos dos participantes da conversa.↵\n↵\nCOMUNICAÇÃO COMPLETA: mensagens, chamadas de voz e de vídeo, compartilhamento de arquivos, compartilhamento de tela e um monte de integrações, bots e widgets. Crie salas, comunidades, mantenha contato e faça as coisas acontecerem.↵\n↵\nONDE QUER QUE VOCÊ ESTEJA: mantenha contato onde quer que você esteja, com o histórico de mensagens totalmente sincronizado em todos os seus aparelhos e no navegador de internet em https://element.io/app.";
+"store_full_description" = "O Blast é um novo tipo de aplicativo de comunicação e colaboração que:↵\n↵\n1. Coloca você no controle de sua privacidade;↵\n2. Permite que você se comunique com qualquer pessoa na rede Matrix, e até mais além, integrando-se a aplicativos como o Slack;↵\n3. Protege você de publicidade, mineração de dados, backdoors e ecossistemas fechados;↵\n4. Protege você por meio da criptografia de ponta a ponta, com autoverificação para confirmar outras pessoas.↵\n↵\nO Blast é completamente diferente de outros aplicativos de mensagens e colaboração porque é descentralizado e de código aberto.↵\n↵\nO Blast permite que você use seu próprio servidor - ou escolha uma alternativa de armazenamento - para ter privacidade, propriedade e controle de seus dados e conversas. Dá acesso a uma rede aberta; para que você não fique falando apenas com outros usuários do Blast. E é muito seguro.↵\n↵\nO Blast é capaz de fazer tudo isso porque opera na rede Matrix - o padrão para comunicação aberta e descentralizada.↵\n↵\nO Blast coloca você no controle, permitindo escolher quem armazena suas conversas. No aplicativo do Blast, você pode optar por armazenar de diferentes maneiras:↵\n↵\n1. Obtenha uma conta gratuita no servidor público matrix.org↵\n2. Armazene sua conta automaticamente, executando um servidor em seu próprio hardware↵\n3. Inscreva-se em uma conta para um servidor personalizado, basta se inscrever na plataforma de armazenamento do Blast Matrix Services↵\n↵\nPor que escolher o Blast?↵\n↵\nPOSSUA SEUS DADOS: você decide onde guardar seus dados e mensagens. Você os possui e controla, e não alguma MEGA CORPORAÇÃO que vende seus dados ou dá acesso a terceiros.↵\n↵\nMENSAGEM ABERTA E COLABORAÇÃO: você pode conversar com qualquer outra pessoa na rede Matrix, esteja ela usando o Blast ou outro aplicativo que se conecta na rede Matrix. E mesmo se estiverem usando um sistema de mensagens diferente, como Slack, IRC ou XMPP.↵\n↵\nSUPER SEGURO: criptografia real de ponta a ponta (somente aqueles na conversa podem descriptografar as mensagens) e autoverificação para confirmar os aparelhos dos participantes da conversa.↵\n↵\nCOMUNICAÇÃO COMPLETA: mensagens, chamadas de voz e de vídeo, compartilhamento de arquivos, compartilhamento de tela e um monte de integrações, bots e widgets. Crie salas, comunidades, mantenha contato e faça as coisas acontecerem.↵\n↵\nONDE QUER QUE VOCÊ ESTEJA: mantenha contato onde quer que você esteja, com o histórico de mensagens totalmente sincronizado em todos os seus aparelhos e no navegador de internet em https://staging.vinix.im.";
 "auth_login_single_sign_on" = "Entre com o logon único";
 "auth_autodiscover_invalid_response" = "Resposta de descoberta inválida no servidor local";
 "room_message_unable_open_link_error_message" = "Não foi possível abrir o link.";
@@ -799,7 +800,7 @@
 "widget_integration_manager_disabled" = "Você precisa ativar o Gerenciador de Integrações nas configurações";
 "service_terms_modal_description_for_identity_server_1" = "Encontrar outras pessoas por telefone ou e-mail";
 "service_terms_modal_description_for_identity_server_2" = "Seja encontrada/o por número de celular ou por e-mail";
-"device_verification_self_verify_wait_additional_information" = "Isso funciona no Element e em outros clientes da Matrix capazes de fazer autoverificação.";
+"device_verification_self_verify_wait_additional_information" = "Isso funciona no Blast e em outros clientes da Matrix capazes de fazer autoverificação.";
 "key_verification_verified_user_information" = "As mensagens com este usuário estão criptografadas de ponta a ponta e não podem ser lidas por terceiros.";
 "device_verification_emoji_smiley" = "Sorriso";
 // Generic errors
@@ -820,10 +821,10 @@
 // Accessibility
 "accessibility_checkbox_label" = "caixa de seleção";
 // MARK: Clients
-"client_desktop_name" = "Element para Computador";
-"client_web_name" = "Element Web";
-"client_ios_name" = "Element para iOS";
-"client_android_name" = "Element para Android";
+"client_desktop_name" = "Blast para Computador";
+"client_web_name" = "Blast Web";
+"client_ios_name" = "Blast para iOS";
+"client_android_name" = "Blast para Android";
 "auth_add_phone_message_2" = "Defina um número de telefone. Posteriormente, você pode permitir que as pessoas encontrem você através dele.";
 "auth_phone_is_required" = "Nenhum servidor de identidade está configurado, portanto você não pode adicionar um número de telefone para redefinir sua senha no futuro.";
 "auth_forgot_password_error_no_configured_identity_server" = "Nenhum servidor de identidade está configurado: adicione um para redefinir sua senha.";
@@ -886,7 +887,7 @@
 "security_settings_advanced" = "AVANÇADO";
 "security_settings_complete_security_alert_title" = "Concluir segurança";
 "security_settings_complete_security_alert_message" = "Primeiro, você precisa concluir as etapas de segurança de sua sessão atual.";
-"security_settings_coming_soon" = "Desculpe, este recurso ainda não está disponível no Element para iOS. Use outro cliente Matrix para configurar este recurso, e a definição valerá aqui.";
+"security_settings_coming_soon" = "Desculpe, este recurso ainda não está disponível no Blast para iOS. Use outro cliente Matrix para configurar este recurso, e a definição valerá aqui.";
 "manage_session_info" = "INFORMAÇÕES DA SESSÃO";
 "manage_session_trusted" = "Confiado por você";
 "manage_session_not_trusted" = "Não confiável";
@@ -973,7 +974,7 @@
 "key_verification_self_verify_unverified_sessions_alert_validate_action" = "Revisar";
 "device_verification_self_verify_wait_title" = "Concluir segurança";
 "device_verification_self_verify_wait_new_sign_in_title" = "Confirmar este login";
-"device_verification_self_verify_wait_information" = "Confirme esta sessão a partir de uma de suas outras sessões, concedendo acesso às mensagens criptografadas.↵\n↵\nUse o Element mais recente em seus outros aparelhos:";
+"device_verification_self_verify_wait_information" = "Confirme esta sessão a partir de uma de suas outras sessões, concedendo acesso às mensagens criptografadas.↵\n↵\nUse o Blast mais recente em seus outros aparelhos:";
 "device_verification_self_verify_wait_recover_secrets_without_passphrase" = "Usar chave de recuperação";
 "device_verification_self_verify_wait_recover_secrets_with_passphrase" = "Use a chave de recuperação, ou a frase de recuperação";
 "device_verification_self_verify_wait_recover_secrets_additional_information" = "Se você não tem acesso a uma sessão existente";
@@ -1134,7 +1135,7 @@
 "secrets_setup_recovery_passphrase_confirm_passphrase_placeholder" = "Confirme a frase secreta";
 "cross_signing_setup_banner_title" = "Configurar a criptografia";
 "cross_signing_setup_banner_subtitle" = "Confirme seus outros aparelhos com mais facilidade";
-"major_update_title" = "Riot agora é Element";
+"major_update_title" = "Riot agora é Blast";
 "major_update_learn_more_action" = "Saiba mais";
 "major_update_done_action" = "Ok, entendi";
 "pin_protection_choose_pin" = "Crie um PIN de segurança";
@@ -1239,4 +1240,4 @@
 
 // MARK: - Home
 
-"home_empty_view_title" = "Boas-vindas ao Element,\n%@";
+"home_empty_view_title" = "Boas-vindas ao Blast,\n%@";

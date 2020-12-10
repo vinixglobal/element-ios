@@ -292,10 +292,10 @@
 "directory_cell_description" = "%tu Räume";
 "directory_search_results" = "%tu Treffer gefunden für %@";
 "directory_search_results_more_than" = ">%tu Treffer gefunden für %@";
-"contacts_address_book_permission_denied" = "Element wurde nicht erlaubt, auf lokale Kontakte zuzugreifen";
+"contacts_address_book_permission_denied" = "Blast wurde nicht erlaubt, auf lokale Kontakte zuzugreifen";
 "room_participants_remove_third_party_invite_msg" = "Entfernen der Einladung von Dritten ist noch nicht unterstützt";
 "room_participants_invite_another_user" = "Suchen/Einladen mittels Benutzer-ID, Name oder E-Mail-Adresse";
-"room_participants_invite_malformed_id" = "Ungültige ID. Sollte eine E-Mail-Adresse oder Matrix-ID wie \"@thomas:matrix.org' sein";
+"room_participants_invite_malformed_id" = "Ungültige ID. Sollte eine E-Mail-Adresse oder Matrix-ID wie \"@thomas:vinix.im' sein";
 "room_participants_idle" = "Untätig";
 "room_participants_ago" = "her";
 "room_participants_action_section_admin_tools" = "Admin Werkzeuge";
@@ -366,7 +366,7 @@
 "directory_server_all_rooms" = "Alle Räume auf %@ Server";
 "directory_server_all_native_rooms" = "Alle nativen Matrix-Räume";
 "directory_server_type_homeserver" = "Gib einen Homeserver ein, um davon öffentliche Räume zu listen";
-"directory_server_placeholder" = "matrix.org";
+"directory_server_placeholder" = "vinix.im";
 // Others
 "or" = "oder";
 "you" = "Du";
@@ -387,7 +387,7 @@
 // Crash report
 "google_analytics_use_prompt" = "Möchtest du helfen %@ zu verbessern, indem du anonyme Crash Reports und Daten über die Verwendung sendest?";
 // Crypto
-"e2e_enabling_on_app_update" = "Element unterstützt nun Ende-zu-Ende Verschlüsselung. Um sie zu aktivieren musst du dich erneut anmelden.\n\nDu kannst sie nun aktivieren oder später in den Einstellungen.";
+"e2e_enabling_on_app_update" = "Blast unterstützt nun Ende-zu-Ende Verschlüsselung. Um sie zu aktivieren musst du dich erneut anmelden.\n\nDu kannst sie nun aktivieren oder später in den Einstellungen.";
 "e2e_need_log_in_again" = "Du musst dich erneut anmelden um Ende-zu-Ende Schlüssel für diese Sitzung zu erstellen und zum Server zu senden.\nDies ist nur einmal notwendig.";
 // Bug report
 "bug_report_title" = "Bug Report";
@@ -411,8 +411,9 @@
 "event_formatter_member_updates" = "%tu Änderungen der Mitgliedschaft";
 "contacts_user_directory_section" = "NUTZER VERZEICHNIS";
 "contacts_user_directory_offline_section" = "NUTZER VERZEICHNIS (offline)";
-"auth_home_server_placeholder" = "URL (z.B. https://matrix.org)";
-"auth_identity_server_placeholder" = "URL (z. B. https://vector.im)";
+"auth_home_server_placeholder" = "URL (z.B. https://vinix.im)";
+"auth_identity_server_placeholder" = "URL (z. B. https://vinix.im)";
+"auth_home_server_label" = "Realm:";
 "room_ongoing_conference_call_close" = "Schließen";
 "room_conference_call_no_power" = "Du brauchst die Berechtigung Konferenzgespräche in diesem Raum zu verwalten";
 "settings_labs_create_conference_with_jitsi" = "Erstelle Konferenzgespräche mit Jitsi";
@@ -458,7 +459,7 @@
 "settings_calls_settings" = "ANRUFE";
 "settings_show_decrypted_content" = "Entschlüsselten Inhalt anzeigen";
 "settings_enable_callkit" = "Eingebettetes Anrufen";
-"settings_callkit_info" = "Empfange eingehende Anrufe auf deinem Sperrbildschirm und sehe deine Element-Anrufe in der Anruf-Historie deines Systems. Wenn iCloud aktiviert ist, wird diese Anruf-Historie mit Apple geteilt.";
+"settings_callkit_info" = "Empfange eingehende Anrufe auf deinem Sperrbildschirm und sehe deine Blast-Anrufe in der Anruf-Historie deines Systems. Wenn iCloud aktiviert ist, wird diese Anruf-Historie mit Apple geteilt.";
 "settings_enable_rageshake" = "Schüttle stark um einen Fehler zu melden";
 "do_not_ask_again" = "Nicht erneut fragen";
 "settings_ui_theme_black" = "Schwarz";
@@ -533,7 +534,7 @@
 "event_formatter_rerequest_keys_part2" = " von deinen anderen Sitzungen anfragen.";
 // Re-request confirmation dialog
 "rerequest_keys_alert_title" = "Anfrage gesendet";
-"rerequest_keys_alert_message" = "Bitte öffne Element auf einem anderen Gerät, das die Nachricht entschlüsseln kann, damit es die Schlüssel an diese Sitzung senden kann.";
+"rerequest_keys_alert_message" = "Bitte öffne Blast auf einem anderen Gerät, das die Nachricht entschlüsseln kann, damit es die Schlüssel an diese Sitzung senden kann.";
 "room_message_reply_to_placeholder" = "Sende eine unverschlüsselte Antwort…";
 "encrypted_room_message_reply_to_placeholder" = "Sende eine verschlüsselte Antwort…";
 "room_message_reply_to_short_placeholder" = "Sende eine Antwort…";
@@ -653,7 +654,7 @@
 "key_backup_setup_intro_manual_export_action" = "Manueller Schlüssel Export";
 // String for App Store
 "store_short_description" = "Sicherer, dezentralisierter Chat/VoIP";
-"store_full_description" = "Element ist die neue Art von Messenger- und Kooperations-App, die:\n\n1. dir die Kontrolle gibt deine Privatsphäre zu schützen,\n2. dir die Kommunikation mit anderen Personen im Matrix-Netzwerk und darüber hinaus Integration in Apps wie Slack ermöglicht,\n3. dich vor Werbung, Datenerfassung, Hintertüren und ummauerten Gärten schützt,\n4. dich durch End-to-End-Verschlüsselung absichert und mit Cross-Signing andere zu überprüfen.\n\nElement unterscheidet sich grundlegend von anderen Messaging- und Kooperations-Diensten, da es dezentralisiert und open-source ist.\n\nMit Element kannst du dich selbst hosten oder einen Host auswählen, sodass du Datenschutz, Eigentum und Kontrolle über deine Daten und Konversationen hast. Du erhältst Zugriff auf ein offenes Netzwerk und bist nicht auf Element-Nutzer beschränkt. Und es ist sehr sicher.\n\nElement ist in der Lage, all dies zu tun, da es mit Matrix arbeitet - dem Standard für offene, dezentrale Kommunikation.\n\nMit Element hast du die Kontrolle, indem du auswählen kannst, wer deine Konversationen hostet. In der Element-App kannst du verschiedene Hosts auswählen:\n\n1. Hole dir ein kostenloses Konto auf dem öffentlichen Server von matrix.org\n2. Hoste dein Konto selbst, indem du einen Server auf deiner eigenen Hardware ausführst\n3. Melde dich für ein Konto auf einem benutzerdefinierten Server an, indem du einfach die Hosting-Plattform von Element Matrix Services abonnierst\n\nWarum Element?\n\nBESITZE DEINE DATEN: Du entscheidest, wo deine Daten und Nachrichten aufbewahrt werden sollen. Du besitzt und kontrollierst sie, nicht irgendeine MEGACORP, die deine Daten verwertet oder Dritten Zugriff gewährt.\n\nOPEN MESSAGING UND ZUSAMMENARBEIT: Du kannst mit allen anderen Mitgliedern des Matrix-Netzwerks chatten, unabhängig davon, ob sie Element oder eine andere Matrix-App verwenden, sogar selbst wenn sie ein anderes Messaging-System wie Slack, IRC oder XMPP verwenden.\n\nSUPERSICHER: Echte End-to-End-Verschlüsselung (nur diejenigen in der Konversation können Nachrichten entschlüsseln) und Cross-Signing, um die Geräte der Konversationsteilnehmer zu überprüfen.\n\nVOLLSTÄNDIGE KOMMUNIKATION: Messaging, Sprach- und Videoanrufe, Dateifreigabe, Bildschirmfreigabe und eine ganze Reihe von Integrationen, Bots und Widgets. Baue Räume, Gemeinschaften, bleib in Kontakt und erledige Dinge.\n\nÜBERALL, WO Du BIST: Bleibe mit dem vollständig synchronisierten Nachrichtenverlauf auf all deinen Geräten und im Internet (unter https://element.io/app) unabhängig voneinander in Kontakt.";
+"store_full_description" = "Blast ist die neue Art von Messenger- und Kooperations-App, die:\n\n1. dir die Kontrolle gibt deine Privatsphäre zu schützen,\n2. dir die Kommunikation mit anderen Personen im Matrix-Netzwerk und darüber hinaus Integration in Apps wie Slack ermöglicht,\n3. dich vor Werbung, Datenerfassung, Hintertüren und ummauerten Gärten schützt,\n4. dich durch End-to-End-Verschlüsselung absichert und mit Cross-Signing andere zu überprüfen.\n\nBlast unterscheidet sich grundlegend von anderen Messaging- und Kooperations-Diensten, da es dezentralisiert und open-source ist.\n\nMit Blast kannst du dich selbst hosten oder einen Host auswählen, sodass du Datenschutz, Eigentum und Kontrolle über deine Daten und Konversationen hast. Du erhältst Zugriff auf ein offenes Netzwerk und bist nicht auf Blast-Nutzer beschränkt. Und es ist sehr sicher.\n\nBlast ist in der Lage, all dies zu tun, da es mit Matrix arbeitet - dem Standard für offene, dezentrale Kommunikation.\n\nMit Blast hast du die Kontrolle, indem du auswählen kannst, wer deine Konversationen hostet. In der Blast-App kannst du verschiedene Hosts auswählen:\n\n1. Hole dir ein kostenloses Konto auf dem öffentlichen Server von vinix.im\n2. Hoste dein Konto selbst, indem du einen Server auf deiner eigenen Hardware ausführst\n3. Melde dich für ein Konto auf einem benutzerdefinierten Server an, indem du einfach die Hosting-Plattform von Blast Services abonnierst\n\nWarum Blast?\n\nBESITZE DEINE DATEN: Du entscheidest, wo deine Daten und Nachrichten aufbewahrt werden sollen. Du besitzt und kontrollierst sie, nicht irgendeine MEGACORP, die deine Daten verwertet oder Dritten Zugriff gewährt.\n\nOPEN MESSAGING UND ZUSAMMENARBEIT: Du kannst mit allen anderen Mitgliedern des Matrix-Netzwerks chatten, unabhängig davon, ob sie Blast oder eine andere Matrix-App verwenden, sogar selbst wenn sie ein anderes Messaging-System wie Slack, IRC oder XMPP verwenden.\n\nSUPERSICHER: Echte End-to-End-Verschlüsselung (nur diejenigen in der Konversation können Nachrichten entschlüsseln) und Cross-Signing, um die Geräte der Konversationsteilnehmer zu überprüfen.\n\nVOLLSTÄNDIGE KOMMUNIKATION: Messaging, Sprach- und Videoanrufe, Dateifreigabe, Bildschirmfreigabe und eine ganze Reihe von Integrationen, Bots und Widgets. Baue Räume, Gemeinschaften, bleib in Kontakt und erledige Dinge.\n\nÜBERALL, WO Du BIST: Bleibe mit dem vollständig synchronisierten Nachrichtenverlauf auf all deinen Geräten und im Internet (unter https://staging.vinix.im) unabhängig voneinander in Kontakt.";
 "auth_login_single_sign_on" = "Anmelden mit Single Sign-On";
 "auth_autodiscover_invalid_response" = "Ungültige Antwort beim Entdecken des Heimservers";
 "room_message_unable_open_link_error_message" = "Konnte Link nicht öffnen.";
@@ -998,15 +999,15 @@
 "device_verification_self_verify_start_information" = "Benutze diese Sitzung um deine Neue zu verifizieren. Erlaube Zugriff auf die verschlüsselten Nachrichten.";
 "device_verification_self_verify_start_waiting" = "Warte…";
 "device_verification_self_verify_wait_title" = "vervollständige Sicherheit";
-"device_verification_self_verify_wait_information" = "Überprüfe diese Sitzung von einer anderen aus, um Zugriff auf die verschlüsselten Nachrichten zu erhalten.\n\nBenutze die neuest Element-Sitzung auf deinem anderen Gerät:";
+"device_verification_self_verify_wait_information" = "Überprüfe diese Sitzung von einer anderen aus, um Zugriff auf die verschlüsselten Nachrichten zu erhalten.\n\nBenutze die neuest Blast-Sitzung auf deinem anderen Gerät:";
 "device_verification_self_verify_wait_waiting" = "warte…";
 "skip" = "Überspringen";
 // MARK: Clients
-"client_desktop_name" = "Element Desktop";
+"client_desktop_name" = "Blast Desktop";
 "security_settings_crosssigning_info_not_bootstrapped" = "Cross-signing ist bisher nicht konfiguriert.";
-"client_web_name" = "Element Web";
-"client_ios_name" = "Element iOS";
-"client_android_name" = "Element Android";
+"client_web_name" = "Blast Web";
+"client_ios_name" = "Blast iOS";
+"client_android_name" = "Blast Android";
 "room_member_power_level_admin_in" = "Admin in %@";
 "room_member_power_level_moderator_in" = "Moderator in %@";
 "room_member_power_level_custom_in" = "Benutzerdefiniert (%@) in %@";
@@ -1018,7 +1019,7 @@
 "security_settings_secure_backup_delete" = "Lösche";
 "security_settings_crosssigning_info_ok" = "Cross-signing ist angeschaltet.";
 "security_settings_crosssigning_reset" = "Cross-signing zurücksetzen";
-"security_settings_coming_soon" = "Entschuldigung, diese Funktion ist noch nicht für Element iOS verfügbar. Bitte nutze einen anderen Matrix Client, um es einzurichten. Element iOS wird es benutzen.";
+"security_settings_coming_soon" = "Entschuldigung, diese Funktion ist noch nicht für Blast iOS verfügbar. Bitte nutze einen anderen Matrix Client, um es einzurichten. Blast iOS wird es benutzen.";
 "security_settings_user_password_description" = "Bestätige deine Identität durch Eingabe des Kontopassworts";
 // AuthenticatedSessionViewControllerFactory
 "authenticated_session_flow_not_supported" = "Diese App unterstützt nicht diese Authentifizierungsmethode für deinen Home-Server.";
@@ -1148,7 +1149,7 @@
 "secrets_setup_recovery_passphrase_confirm_passphrase_placeholder" = "Passphrase bestätigen";
 "cross_signing_setup_banner_title" = "Verschlüsselung einrichten";
 "cross_signing_setup_banner_subtitle" = "Verifiziere deine anderen Geräte einfacher";
-"major_update_title" = "Riot ist jetzt Element";
+"major_update_title" = "Riot ist jetzt Blast";
 "major_update_information" = "Wir sind begeistert unsere Namensänderung mitteilen zu können! Deine App ist auf dem neusten Stand und du bist mit deinem Account angemeldet.";
 "major_update_learn_more_action" = "Mehr erfahren";
 "major_update_done_action" = "Verstanden";
@@ -1205,7 +1206,7 @@
 "create_room_section_footer_type" = "Personen können einen privaten Raum nur mit Einladung betreten.";
 "create_room_show_in_directory" = "Zeige den Raum im Raum-Verzeichnis";
 "create_room_section_header_address" = "Raum-Adresse";
-"create_room_placeholder_address" = "#testraum:matrix.org";
+"create_room_placeholder_address" = "#testraum:vinix.im";
 "room_info_list_room_encrypted" = "Nachrichten in diesem Raum sind Ende-zu-Ende verschlüsselt";
 "room_info_list_one_member" = "1 Mitglied";
 "room_info_list_several_members" = "%@ Mitglieder";
