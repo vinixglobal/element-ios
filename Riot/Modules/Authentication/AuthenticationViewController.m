@@ -6,9 +6,9 @@
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
- 
+
  http://www.apache.org/licenses/LICENSE-2.0
- 
+
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -33,7 +33,7 @@
      The default country code used to initialize the mobile phone number input.
      */
     NSString *defaultCountryCode;
-    
+
     /**
      Observe kThemeServiceDidChangeThemeNotification to handle user interface theme change.
      */
@@ -50,10 +50,10 @@
     MXAutoDiscovery *autoDiscovery;
 
     AuthFallBackViewController *authFallBackViewController;
-    
+
     // successful login credentials
     MXCredentials *loginCredentials;
-    
+
     // Check false display of this screen only once
     BOOL didCheckFalseAuthScreenDisplay;
 }
@@ -84,54 +84,56 @@
 - (void)finalizeInit
 {
     [super finalizeInit];
-    
+
     // Setup `MXKViewControllerHandling` properties
     self.enableBarTintColorStatusChange = NO;
     self.rageShakeManager = [RageShakeManager sharedManager];
-    
+
     // Set a default country code
     // Note: this value is used only when no MCC and no local country code is available.
     defaultCountryCode = @"GB";
-    
+
     didCheckFalseAuthScreenDisplay = NO;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     self.mainNavigationItem.title = nil;
     self.rightBarButtonItem.title = NSLocalizedStringFromTable(@"auth_register", @"Vector", nil);
-    
+
     self.defaultHomeServerUrl = RiotSettings.shared.homeserverUrlString;
-    
+
     self.defaultIdentityServerUrl = RiotSettings.shared.identityServerUrlString;
-    
+
     self.welcomeImageView.image = [UIImage imageNamed:@"horizontal_logo"];
-    
+
     [self.submitButton.layer setCornerRadius:5];
     self.submitButton.clipsToBounds = YES;
     [self.submitButton setTitle:NSLocalizedStringFromTable(@"auth_login", @"Vector", nil) forState:UIControlStateNormal];
     [self.submitButton setTitle:NSLocalizedStringFromTable(@"auth_login", @"Vector", nil) forState:UIControlStateHighlighted];
     self.submitButton.enabled = YES;
-    
+
     [self.skipButton.layer setCornerRadius:5];
     self.skipButton.clipsToBounds = YES;
     [self.skipButton setTitle:NSLocalizedStringFromTable(@"auth_skip", @"Vector", nil) forState:UIControlStateNormal];
     [self.skipButton setTitle:NSLocalizedStringFromTable(@"auth_skip", @"Vector", nil) forState:UIControlStateHighlighted];
     self.skipButton.enabled = YES;
-    
+
     [self.customServersTickButton setImage:[UIImage imageNamed:@"selection_untick"] forState:UIControlStateNormal];
     [self.customServersTickButton setImage:[UIImage imageNamed:@"selection_untick"] forState:UIControlStateHighlighted];
-    
+
     if (!BuildSettings.authScreenShowRegister)
     {
         self.rightBarButtonItem.enabled = NO;
         self.rightBarButtonItem.title = nil;
     }
     self.serverOptionsContainer.hidden = !BuildSettings.authScreenShowCustomServerOptions;
-    
-    [self hideCustomServers:YES];
+
+    [self hideCustomServers:NO];
+    //Hide the radio button option to select a custom server
+    self.customServersTickButton.hidden = YES;
 
     // Soft logout section
     self.softLogoutClearDataButton.layer.cornerRadius = 5;
@@ -140,18 +142,18 @@
     [self.softLogoutClearDataButton setTitle:NSLocalizedStringFromTable(@"auth_softlogout_clear_data_button", @"Vector", nil) forState:UIControlStateHighlighted];
     self.softLogoutClearDataButton.enabled = YES;
     self.softLogoutClearDataContainer.hidden = YES;
-    
+
     // The view controller dismiss itself on successful login.
     self.delegate = self;
-    
+
     self.homeServerTextField.placeholder = NSLocalizedStringFromTable(@"auth_home_server_placeholder", @"Vector", nil);
     self.identityServerTextField.placeholder = NSLocalizedStringFromTable(@"auth_identity_server_placeholder", @"Vector", nil);
-    
+
     // Custom used authInputsView
     [self registerAuthInputsViewClass:AuthInputsView.class forAuthType:MXKAuthenticationTypeLogin];
     [self registerAuthInputsViewClass:AuthInputsView.class forAuthType:MXKAuthenticationTypeRegister];
     [self registerAuthInputsViewClass:ForgotPasswordInputsView.class forAuthType:MXKAuthenticationTypeForgotPassword];
-    
+
     // Initialize the auth inputs display
     AuthInputsView *authInputsView = [AuthInputsView authInputsView];
     MXAuthenticationSession *authSession = [MXAuthenticationSession modelFromJSON:@{@"flows":@[@{@"stages":@[kMXLoginFlowTypePassword]}]}];
@@ -163,9 +165,9 @@
 
     // Observe user interface theme change.
     kThemeServiceDidChangeThemeNotificationObserver = [[NSNotificationCenter defaultCenter] addObserverForName:kThemeServiceDidChangeThemeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *notif) {
-        
+
         [self userInterfaceThemeDidChange];
-        
+
     }];
     universalLinkDidChangeNotificationObserver = [[NSNotificationCenter defaultCenter] addObserverForName:AppDelegateUniversalLinkDidChangeNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull notification) {
         [self updateUniversalLink];
@@ -173,7 +175,7 @@
 
     [self userInterfaceThemeDidChange];
     [self updateUniversalLink];
-    
+
     _keyboardAvoider = [[KeyboardAvoider alloc] initWithScrollViewContainerView:self.view scrollView:self.authenticationScrollView];
 }
 
@@ -192,8 +194,10 @@
     self.view.backgroundColor = ThemeService.shared.theme.backgroundColor;
 
     self.authenticationScrollView.backgroundColor = ThemeService.shared.theme.backgroundColor;
-    
-    self.welcomeImageView.tintColor = ThemeService.shared.theme.tintColor;
+
+    //To remove the tint of the image and let the original color
+    self.welcomeImageView.image = [self.welcomeImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+
 
     // Style the authentication fallback webview screen so that its header matches to navigation bar style
     self.authFallbackContentView.backgroundColor = ThemeService.shared.theme.baseColor;
@@ -211,32 +215,33 @@
                                                               initWithString:self.identityServerTextField.placeholder
                                                               attributes:@{NSForegroundColorAttributeName: ThemeService.shared.theme.placeholderTextColor}];
     }
-    
+
     self.submitButton.backgroundColor = ThemeService.shared.theme.tintColor;
     self.skipButton.backgroundColor = ThemeService.shared.theme.tintColor;
-    
+
     self.noFlowLabel.textColor = ThemeService.shared.theme.warningColor;
-    
+
     NSMutableAttributedString *forgotPasswordTitle = [[NSMutableAttributedString alloc] initWithString:NSLocalizedStringFromTable(@"auth_forgot_password", @"Vector", nil)];
     [forgotPasswordTitle addAttribute:NSUnderlineStyleAttributeName value:@(NSUnderlineStyleSingle) range:NSMakeRange(0, forgotPasswordTitle.length)];
     [forgotPasswordTitle addAttribute:NSForegroundColorAttributeName value:ThemeService.shared.theme.tintColor range:NSMakeRange(0, forgotPasswordTitle.length)];
     [self.forgotPasswordButton setAttributedTitle:forgotPasswordTitle forState:UIControlStateNormal];
     [self.forgotPasswordButton setAttributedTitle:forgotPasswordTitle forState:UIControlStateHighlighted];
-    
+
     NSMutableAttributedString *forgotPasswordTitleDisabled = [[NSMutableAttributedString alloc] initWithAttributedString:forgotPasswordTitle];
     [forgotPasswordTitleDisabled addAttribute:NSForegroundColorAttributeName value:[ThemeService.shared.theme.tintColor colorWithAlphaComponent:0.3] range:NSMakeRange(0, forgotPasswordTitle.length)];
     [self.forgotPasswordButton setAttributedTitle:forgotPasswordTitleDisabled forState:UIControlStateDisabled];
-    
+
     [self updateForgotPwdButtonVisibility];
-    
+
     NSAttributedString *serverOptionsTitle = [[NSAttributedString alloc] initWithString:NSLocalizedStringFromTable(@"auth_use_server_options", @"Vector", nil) attributes:@{NSForegroundColorAttributeName : ThemeService.shared.theme.textSecondaryColor, NSFontAttributeName: [UIFont systemFontOfSize:14]}];
     [self.customServersTickButton setAttributedTitle:serverOptionsTitle forState:UIControlStateNormal];
     [self.customServersTickButton setAttributedTitle:serverOptionsTitle forState:UIControlStateHighlighted];
-    
+
     self.homeServerSeparator.backgroundColor = ThemeService.shared.theme.lineBreakColor;
     self.homeServerTextField.textColor = ThemeService.shared.theme.textPrimaryColor;
     self.homeServerLabel.textColor = ThemeService.shared.theme.textSecondaryColor;
-    
+    self.homeServerLabel.text = NSLocalizedStringFromTable(@"auth_home_server_label", @"Vector", nil);
+
     self.identityServerSeparator.backgroundColor = ThemeService.shared.theme.lineBreakColor;
     self.identityServerTextField.textColor = ThemeService.shared.theme.textPrimaryColor;
     self.identityServerLabel.textColor = ThemeService.shared.theme.textSecondaryColor;
@@ -245,11 +250,11 @@
 
     self.softLogoutClearDataLabel.textColor = ThemeService.shared.theme.textPrimaryColor;
     self.softLogoutClearDataButton.backgroundColor = ThemeService.shared.theme.warningColor;
-    
+
     self.customServersTickButton.tintColor = ThemeService.shared.theme.tintColor;
 
     [self.authInputsView customizeViewRendering];
-    
+
     [self setNeedsStatusBarAppearanceUpdate];
 }
 
@@ -278,18 +283,18 @@
 
     // Screen tracking
     [[Analytics sharedInstance] trackScreen:@"Authentication"];
-    
+
     [_keyboardAvoider startAvoiding];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
+
     if (self.keyVerificationCoordinatorBridgePresenter)
     {
         return;
-    }        
+    }
 
     // Verify that the app does not show the authentification screean whereas
     // the user has already logged in.
@@ -299,7 +304,7 @@
     if (!didCheckFalseAuthScreenDisplay)
     {
         didCheckFalseAuthScreenDisplay = YES;
-        
+
         NSLog(@"[AuthenticationVC] viewDidAppear: Checking false logout");
         [[MXKAccountManager sharedManager] forceReloadAccounts];
         if ([MXKAccountManager sharedManager].activeAccounts.count)
@@ -313,14 +318,14 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [_keyboardAvoider stopAvoiding];
-    
+
     [super viewDidDisappear:animated];
 }
 
 - (void)destroy
 {
     [super destroy];
-    
+
     if (kThemeServiceDidChangeThemeNotificationObserver)
     {
         [[NSNotificationCenter defaultCenter] removeObserver:kThemeServiceDidChangeThemeNotificationObserver];
@@ -350,7 +355,7 @@
         // Restore the default registration screen
         [self updateRegistrationScreenWithThirdPartyIdentifiersHidden:YES];
     }
-    
+
     super.authType = authType;
 
     if (authType == MXKAuthenticationTypeLogin)
@@ -376,7 +381,7 @@
             [self.submitButton setTitle:NSLocalizedStringFromTable(@"auth_send_reset_email", @"Vector", nil) forState:UIControlStateHighlighted];
         }
     }
-    
+
     [self updateForgotPwdButtonVisibility];
     [self updateSoftLogoutClearDataContainerVisibility];
 }
@@ -389,12 +394,12 @@
         // We will reuse the current country code
         defaultCountryCode = ((AuthInputsView*)self.authInputsView).isoCountryCode;
     }
-    
+
     // Finalize the new auth inputs view
     if ([authInputsView isKindOfClass:AuthInputsView.class])
     {
         AuthInputsView *authInputsview = (AuthInputsView*)authInputsView;
-        
+
         // Retrieve the MCC from the SIM card information (Note: the phone book country code is not defined yet)
         NSString *countryCode = [MXKAppSettings standardAppSettings].phonebookCountryCode;
         if (!countryCode)
@@ -405,7 +410,7 @@
             {
                 countryCode = local.countryCode;
             }
-            
+
             if (!countryCode)
             {
                 countryCode = defaultCountryCode;
@@ -414,9 +419,9 @@
         authInputsview.isoCountryCode = countryCode;
         authInputsview.delegate = self;
     }
-    
+
     [super setAuthInputsView:authInputsView];
-    
+
     // Restore here the actual content view height.
     // Indeed this height has been modified according to the authInputsView height in the default implementation of MXKAuthenticationViewController.
     [self refreshContentViewHeightConstraint];
@@ -428,15 +433,15 @@
 
     // Reset
     self.rightBarButtonItem.enabled = YES;
-    
+
     // Show/Hide server options
     if (_optionsContainer.hidden == userInteractionEnabled)
     {
         _optionsContainer.hidden = !userInteractionEnabled;
-        
+
         [self refreshContentViewHeightConstraint];
     }
-    
+
     // Update the label of the right bar button according to its actual action.
     if (!userInteractionEnabled)
     {
@@ -473,7 +478,7 @@
         else if (self.authType == MXKAuthenticationTypeRegister)
         {
             self.rightBarButtonItem.title = NSLocalizedStringFromTable(@"auth_login", @"Vector", nil);
-            
+
             // Restore the back button
             if (authInputsview)
             {
@@ -492,7 +497,7 @@
 {
     KeyVerificationCoordinatorBridgePresenter *keyVerificationCoordinatorBridgePresenter = [[KeyVerificationCoordinatorBridgePresenter alloc] initWithSession:session];
     keyVerificationCoordinatorBridgePresenter.delegate = self;
-    
+
     if (self.navigationController)
     {
         [keyVerificationCoordinatorBridgePresenter pushCompleteSecurityFrom:self.navigationController isNewSignIn:YES animated:YES];
@@ -501,7 +506,7 @@
     {
         [keyVerificationCoordinatorBridgePresenter presentCompleteSecurityFrom:self isNewSignIn:YES animated:YES];
     }
-    
+
     self.keyVerificationCoordinatorBridgePresenter = keyVerificationCoordinatorBridgePresenter;
 }
 
@@ -509,7 +514,7 @@
 {
     self.userInteractionEnabled = YES;
     [self.authenticationActivityIndicator stopAnimating];
-    
+
     // Remove auth view controller on successful login
     if (self.navigationController)
     {
@@ -521,7 +526,7 @@
         // Dismiss on successful login
         [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     }
-    
+
     if (self.authVCDelegate)
     {
         [self.authVCDelegate authenticationViewControllerDidDismiss:self];
@@ -580,7 +585,7 @@
          didLoginWithLoginResponse:(MXLoginResponse *)loginResponse
 {
     [authFallBackViewController dismissViewControllerAnimated:YES completion:^{
-        
+
         MXCredentials *credentials = [[MXCredentials alloc] initWithLoginResponse:loginResponse andDefaultCredentials:nil];
         [self onSuccessfulLogin:credentials];
     }];
@@ -619,7 +624,7 @@
     NSString *string = [NSString stringWithFormat:@"%@\n\n%@",
                         NSLocalizedStringFromTable(@"auth_softlogout_clear_data_message_1", @"Vector", nil),
                         NSLocalizedStringFromTable(@"auth_softlogout_clear_data_message_2", @"Vector", nil)];
-    
+
     [message appendAttributedString:[[NSAttributedString alloc] initWithString:string
                                                                     attributes:@{
                                                                                  NSFontAttributeName: [UIFont systemFontOfSize:14]
@@ -738,7 +743,7 @@
 {
     // Make some cleaning from the server response according to what the app supports
     authSession = [self handleSupportedFlowsInAuthenticationSession:authSession];
-    
+
     [super handleAuthenticationSession:authSession];
 
     AuthInputsView *authInputsview;
@@ -780,7 +785,7 @@
                                                                     preferredStyle:UIAlertControllerStyleAlert];
             [alert addAction:[UIAlertAction actionWithTitle:[NSBundle mxk_localizedStringForKey:@"ok"] style:UIAlertActionStyleDefault handler:nil]];
             [self presentViewController:alert animated:YES completion:nil];
-            
+
             return;
         }
         else
@@ -813,10 +818,10 @@
         if ([self.authInputsView isKindOfClass:AuthInputsView.class])
         {
             AuthInputsView *authInputsview = (AuthInputsView*)self.authInputsView;
-            
+
             // Hide the supported 3rd party ids which may be added to the account
             authInputsview.thirdPartyIdentifiersHidden = YES;
-            
+
             [self updateRegistrationScreenWithThirdPartyIdentifiersHidden:YES];
         }
     }
@@ -830,14 +835,14 @@
             if ([self.authInputsView isKindOfClass:AuthInputsView.class])
             {
                 AuthInputsView *authInputsview = (AuthInputsView*)self.authInputsView;
-                
+
                 // Show the 3rd party ids screen if it is not shown yet
                 if (authInputsview.areThirdPartyIdentifiersSupported && authInputsview.isThirdPartyIdentifiersHidden)
                 {
                     [self dismissKeyboard];
-                    
+
                     [self.authenticationActivityIndicator startAnimating];
-                    
+
                     // Check parameters validity
                     NSString *errorMsg = [self.authInputsView validateParameters];
                     if (errorMsg)
@@ -869,12 +874,12 @@
                             }
                         }];
                     }
-                    
+
                     return;
                 }
             }
         }
-        
+
         [super onButtonPressed:sender];
     }
     else if (sender == self.skipButton)
@@ -883,10 +888,10 @@
         if ([self.authInputsView isKindOfClass:AuthInputsView.class])
         {
             AuthInputsView *authInputsview = (AuthInputsView*)self.authInputsView;
-            
+
             [authInputsview resetThirdPartyIdentifiers];
         }
-        
+
         [super onButtonPressed:self.submitButton];
     }
     else if (sender == ((AuthInputsView*)self.authInputsView).ssoButton)
@@ -925,7 +930,7 @@
     if ([PinCodePreferences shared].forcePinProtection)
     {
         loginCredentials = credentials;
-        
+
         SetPinCoordinatorViewMode viewMode = SetPinCoordinatorViewModeSetPin;
         switch (self.authType) {
             case MXKAuthenticationTypeLogin:
@@ -937,14 +942,14 @@
             default:
                 break;
         }
-        
+
         SetPinCoordinatorBridgePresenter *presenter = [[SetPinCoordinatorBridgePresenter alloc] initWithSession:nil viewMode:viewMode];
         presenter.delegate = self;
         [presenter presentFrom:self animated:YES];
         self.setPinCoordinatorBridgePresenter = presenter;
         return;
     }
-    
+
     [self afterSetPinFlowCompletedWithCredentials:credentials];
 }
 
@@ -955,16 +960,16 @@
     {
         authInputsview = (AuthInputsView*)self.authInputsView;
     }
-    
+
     BOOL showForgotPasswordButton = NO;
 
     if (BuildSettings.authScreenShowForgotPassword)
     {
         showForgotPasswordButton = (self.authType == MXKAuthenticationTypeLogin) && !authInputsview.isSingleSignOnRequired;
     }
-    
+
     self.forgotPasswordButton.hidden = !showForgotPasswordButton;
-    
+
     // Adjust minimum leading constraint of the submit button
     if (self.forgotPasswordButton.isHidden)
     {
@@ -990,22 +995,22 @@
             {
                 [alert dismissViewControllerAnimated:NO completion:nil];
             }
-            
+
             alert = [UIAlertController alertControllerWithTitle:NSLocalizedStringFromTable(@"warning", @"Vector", nil) message:NSLocalizedStringFromTable(@"auth_add_email_and_phone_warning", @"Vector", nil) preferredStyle:UIAlertControllerStyleAlert];
-            
+
             [alert addAction:[UIAlertAction actionWithTitle:[NSBundle mxk_localizedStringForKey:@"ok"]
                                                              style:UIAlertActionStyleDefault
                                                            handler:^(UIAlertAction * action) {
-                                                               
+
                 [super onSuccessfulLogin:credentials];
-                                                               
+
                                                            }]];
-            
+
             [self presentViewController:alert animated:YES completion:nil];
             return;
         }
     }
-    
+
     [super onSuccessfulLogin:credentials];
 }
 
@@ -1014,7 +1019,7 @@
 - (void)updateRegistrationScreenWithThirdPartyIdentifiersHidden:(BOOL)thirdPartyIdentifiersHidden
 {
     self.skipButton.hidden = thirdPartyIdentifiersHidden;
-    
+
     // Do not display the skip button if the 3PID is mandatory
     if (!thirdPartyIdentifiersHidden)
     {
@@ -1027,23 +1032,23 @@
             }
         }
     }
-    
+
     self.serverOptionsContainer.hidden = !thirdPartyIdentifiersHidden
                                             || !BuildSettings.authScreenShowCustomServerOptions;
     [self refreshContentViewHeightConstraint];
-    
+
     if (thirdPartyIdentifiersHidden)
     {
         [self.submitButton setTitle:NSLocalizedStringFromTable(@"auth_register", @"Vector", nil) forState:UIControlStateNormal];
         [self.submitButton setTitle:NSLocalizedStringFromTable(@"auth_register", @"Vector", nil) forState:UIControlStateHighlighted];
-        
+
         self.mainNavigationItem.leftBarButtonItem = nil;
     }
     else
     {
         [self.submitButton setTitle:NSLocalizedStringFromTable(@"auth_submit", @"Vector", nil) forState:UIControlStateNormal];
         [self.submitButton setTitle:NSLocalizedStringFromTable(@"auth_submit", @"Vector", nil) forState:UIControlStateHighlighted];
-        
+
         UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(onButtonPressed:)];
         self.mainNavigationItem.leftBarButtonItem = leftBarButtonItem;
     }
@@ -1052,17 +1057,18 @@
 - (void)refreshContentViewHeightConstraint
 {
     // Refresh content view height by considering the options container display.
+
     CGFloat constant = self.optionsContainer.frame.origin.y + 10;
-    
+
     if (!self.optionsContainer.isHidden)
     {
         constant += self.serverOptionsContainer.frame.origin.y;
-        
+
         if (!self.serverOptionsContainer.isHidden)
         {
             CGRect customServersContainerFrame = self.customServersContainer.frame;
             constant += customServersContainerFrame.origin.y;
-            
+
             if (!self.customServersContainer.isHidden)
             {
                 constant += customServersContainerFrame.size.height;
@@ -1089,12 +1095,12 @@
     {
         return;
     }
-    
+
     if (hidden)
     {
         [self.homeServerTextField resignFirstResponder];
         [self.identityServerTextField resignFirstResponder];
-        
+
         // Report server url typed by the user as custom url.
         NSString *homeServerURL = self.homeServerTextField.text;
         if (homeServerURL.length && ![homeServerURL isEqualToString:self.defaultHomeServerUrl])
@@ -1105,7 +1111,7 @@
         {
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"customHomeServerURL"];
         }
-        
+
         NSString *identityServerURL = self.identityServerTextField.text;
         if (identityServerURL.length && ![identityServerURL isEqualToString:self.defaultIdentityServerUrl])
         {
@@ -1115,14 +1121,14 @@
         {
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"customIdentityServerURL"];
         }
-                
+
         // Restore default configuration
         [self setHomeServerTextFieldText:self.defaultHomeServerUrl];
         [self setIdentityServerTextFieldText:self.defaultIdentityServerUrl];
-        
+
         [self.customServersTickButton setImage:[UIImage imageNamed:@"selection_untick"] forState:UIControlStateNormal];
         self.customServersContainer.hidden = YES;
-        
+
         // Refresh content view height
         self.contentViewHeightConstraint.constant -= self.customServersContainer.frame.size.height;
     }
@@ -1143,10 +1149,10 @@
         {
             [self setIdentityServerTextFieldText:customIdentityServerURL];
         }
-        
+
         [self.customServersTickButton setImage:[UIImage imageNamed:@"selection_tick"] forState:UIControlStateNormal];
         self.customServersContainer.hidden = NO;
-        
+
         // Refresh content view height
         self.contentViewHeightConstraint.constant += self.customServersContainer.frame.size.height;
 
@@ -1187,10 +1193,10 @@
     if ([@"viewHeightConstraint.constant" isEqualToString:keyPath])
     {
         self.authInputContainerViewHeightConstraint.constant = self.authInputsView.viewHeightConstraint.constant;
-        
+
         // Force to render the view
         [self.view layoutIfNeeded];
-        
+
         // Refresh content view height by considering the updated frame of the options container.
         [self refreshContentViewHeightConstraint];
     }
@@ -1206,24 +1212,24 @@
 {
     self.userInteractionEnabled = NO;
     [self.authenticationActivityIndicator startAnimating];
-    
+
     // Hide the custom server details in order to save customized inputs
     [self hideCustomServers:YES];
-    
+
     MXKAccount *account = [[MXKAccountManager sharedManager] accountForUserId:userId];
     MXSession *session = account.mxSession;
-    
+
     BOOL botCreationEnabled = [[NSUserDefaults standardUserDefaults] boolForKey:@"enableBotCreation"];
-    
+
     // Create DM with Riot-bot on new account creation.
     if (self.authType == MXKAuthenticationTypeRegister && botCreationEnabled)
     {
-        MXRoomCreationParameters *roomCreationParameters = [MXRoomCreationParameters parametersForDirectRoomWithUser:@"@riot-bot:matrix.org"];
+        MXRoomCreationParameters *roomCreationParameters = [MXRoomCreationParameters parametersForDirectRoomWithUser:@"@riot-bot:vinix.im"];
         [session createRoomWithParameters:roomCreationParameters success:nil failure:^(NSError *error) {
             NSLog(@"[AuthenticationVC] Create chat with riot-bot failed");
         }];
     }
-    
+
     // Wait for session change to present complete security screen if needed
     [self registerSessionStateChangeNotificationForSession:session];
 }
@@ -1237,22 +1243,22 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kMXSessionStateDidChangeNotification object:nil];
 }
-                                  
+
 - (void)sessionStateDidChangeNotification:(NSNotification*)notification
 {
     MXSession *session = (MXSession*)notification.object;
-    
+
     if (session.state == MXSessionStateRunning)
     {
         [self unregisterSessionStateChangeNotification];
-        
+
         if (session.crypto.crossSigning)
         {
             // Do not make key share requests while the "Complete security" is not complete.
             // If the device is self-verified, the SDK will restore the existing key backup.
             // Then, it  will re-enable outgoing key share requests
             [session.crypto setOutgoingKeyRequestsEnabled:NO onComplete:nil];
-            
+
             [session.crypto.crossSigning refreshStateWithSuccess:^(BOOL stateUpdated) {
 
                 NSLog(@"[AuthenticationVC] sessionStateDidChange: crossSigning.state: %@", @(session.crypto.crossSigning.state));
@@ -1271,7 +1277,7 @@
                             if (self.authInputsView.password.length)
                             {
                                 NSLog(@"[AuthenticationVC] sessionStateDidChange: Bootstrap with password");
-                                
+
                                 [session.crypto.crossSigning setupWithPassword:self.authInputsView.password success:^{
                                     NSLog(@"[AuthenticationVC] sessionStateDidChange: Bootstrap succeeded");
                                     [self dismiss];
@@ -1284,7 +1290,7 @@
                             else
                             {
                                 NSLog(@"[AuthenticationVC] sessionStateDidChange: Do not know how to bootstrap cross-signing. Skip it.");
-                                
+
                                 [session.crypto setOutgoingKeyRequestsEnabled:YES onComplete:nil];
                                 [self dismiss];
                             }
@@ -1299,23 +1305,23 @@
                     case MXCrossSigningStateCrossSigningExists:
                     {
                         NSLog(@"[AuthenticationVC] sessionStateDidChange: Complete security");
-                        
+
                         // Ask the user to verify this session
                         self.userInteractionEnabled = YES;
                         [self.authenticationActivityIndicator stopAnimating];
-                        
+
                         [self presentCompleteSecurityWithSession:session];
                         break;
                     }
-                        
+
                     default:
                         NSLog(@"[AuthenticationVC] sessionStateDidChange: Nothing to do");
-                        
+
                         [session.crypto setOutgoingKeyRequestsEnabled:YES onComplete:nil];
                         [self dismiss];
                         break;
                 }
-                
+
             } failure:^(NSError * _Nonnull error) {
                 NSLog(@"[AuthenticationVC] sessionStateDidChange: Fail to refresh crypto state with error: %@", error);
                 [session.crypto setOutgoingKeyRequestsEnabled:YES onComplete:nil];
@@ -1469,7 +1475,7 @@
 {
     // Set outgoing key requests back
     [coordinatorBridgePresenter.session.crypto setOutgoingKeyRequestsEnabled:YES onComplete:nil];
-    
+
     [self dismiss];
 }
 
@@ -1487,10 +1493,10 @@
 {
     //  enable the view again
     [self setUserInteractionEnabled:YES];
-    
+
     //  stop the spinner
     [self.authenticationActivityIndicator stopAnimating];
-    
+
     //  then, just close the enter pin screen
     [coordinatorBridgePresenter dismissWithAnimated:YES completion:nil];
     self.setPinCoordinatorBridgePresenter = nil;
