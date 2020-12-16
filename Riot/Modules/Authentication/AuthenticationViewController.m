@@ -810,7 +810,9 @@
         else
         {
             self.authType = MXKAuthenticationTypeLogin;
-            self.rightBarButtonItem.title = NSLocalizedStringFromTable(@"auth_register", @"Vector", nil);
+            if (BuildSettings.authScreenShowRegister) {
+                self.rightBarButtonItem.title = NSLocalizedStringFromTable(@"auth_register", @"Vector", nil);
+            }
         }
     }
     else if (sender == self.mainNavigationItem.leftBarButtonItem)
