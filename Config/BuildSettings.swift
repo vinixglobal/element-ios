@@ -205,14 +205,16 @@ final class BuildSettings: NSObject {
     static let settingsScreenShowUserSurname: Bool = false
     static let settingsScreenAllowAddingEmailThreepids: Bool = true
     static let settingsScreenAllowAddingPhoneThreepids: Bool = true
-    static let settingsScreenShowThreepidExplanatory: Bool = true
-    static let settingsScreenShowDiscoverySettings: Bool = true
-    static let settingsScreenAllowIdentityServerConfig: Bool = true
+    //Show or hide the Discovery message and options in the Settings view
+    static let settingsScreenShowThreepidExplanatory: Bool = false
+    static let settingsScreenShowDiscoverySettings: Bool = false
+    static let settingsScreenAllowIdentityServerConfig: Bool = false
+    
     static let settingsScreenShowAdvancedSettings: Bool = true
     static let settingsScreenShowLabSettings: Bool = true
     static let settingsScreenAllowChangingRageshakeSettings: Bool = true
     static let settingsScreenAllowChangingCrashUsageDataSettings: Bool = true
-    static let settingsScreenAllowBugReportingManually: Bool = true
+    static let settingsScreenAllowBugReportingManually: Bool = false
     static let settingsScreenAllowDeactivatingAccount: Bool = true
 
     // MARK: - Timeline settings
@@ -247,4 +249,7 @@ final class BuildSettings: NSObject {
     static let authScreenShowPhoneNumber = false
     static let authScreenShowForgotPassword = true
     static let authScreenShowCustomServerOptions = true
+    
+    // MARK: - People Screen
+    static let peopleScreenShowDiscoveryTerms: Bool = false
 }

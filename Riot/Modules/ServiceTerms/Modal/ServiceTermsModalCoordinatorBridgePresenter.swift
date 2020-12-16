@@ -67,16 +67,19 @@ final class ServiceTermsModalCoordinatorBridgePresenter: NSObject {
     // }
     
     func present(from viewController: UIViewController, animated: Bool) {
-        let serviceTermsModalCoordinator = ServiceTermsModalCoordinator(session: self.session, baseUrl: self.baseUrl, serviceType: self.serviceType, outOfContext: self.outOfContext, accessToken: accessToken)
-        serviceTermsModalCoordinator.delegate = self
-        viewController.present(serviceTermsModalCoordinator.toPresentable(), animated: animated, completion: nil)
-        serviceTermsModalCoordinator.start()
-        
-        if let coordinator = self.coordinator {
-            coordinator.toPresentable().dismiss(animated: false, completion: nil)
+        //To avoid showing the Terms Condition pop up
+        if BuildSettings.peopleScreenShowDiscoveryTerms {
+            let serviceTermsModalCoordinator = ServiceTermsModalCoordinator(session: self.session, baseUrl: self.baseUrl, serviceType: self.serviceType, outOfContext: self.outOfContext, accessToken: accessToken)
+            serviceTermsModalCoordinator.delegate = self
+            viewController.present(serviceTermsModalCoordinator.toPresentable(), animated: animated, completion: nil)
+            serviceTermsModalCoordinator.start()
+            
+            if let coordinator = self.coordinator {
+                coordinator.toPresentable().dismiss(animated: false, completion: nil)
+            }
+            
+            self.coordinator = serviceTermsModalCoordinator
         }
-        
-        self.coordinator = serviceTermsModalCoordinator
     }
     
     func dismiss(animated: Bool, completion: (() -> Void)?) {
