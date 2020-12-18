@@ -74,6 +74,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.legacyAppDelegate.window = window
         self.legacyAppDelegate.application(application, didFinishLaunchingWithOptions: launchOptions)
         
+        //To add tint color to all the default text colors from the operating system
+        // like pop ups pickers (photo picker)
+        self.window?.tintColor = ThemeService.shared().theme.tintColor
+        
         return true
     }
     
