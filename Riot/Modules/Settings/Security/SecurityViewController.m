@@ -1274,6 +1274,7 @@ TableViewSectionsDelegate>
                 
                 switchCell.mxkLabel.text = NSLocalizedStringFromTable(@"pin_protection_settings_enable_pin", @"Vector", nil);
                 switchCell.mxkSwitch.on = [PinCodePreferences shared].isPinSet;
+                switchCell.mxkSwitch.onTintColor = ThemeService.shared.theme.tintColor;
                 [switchCell.mxkSwitch addTarget:self action:@selector(enablePinCodeSwitchValueChanged:) forControlEvents:UIControlEventValueChanged];
                 
                 cell = switchCell;
@@ -1300,6 +1301,7 @@ TableViewSectionsDelegate>
             NSString *format = NSLocalizedStringFromTable(@"biometrics_settings_enable_x", @"Vector", nil);
             switchCell.mxkLabel.text = [NSString stringWithFormat:format, [PinCodePreferences shared].localizedBiometricsName];
             switchCell.mxkSwitch.on = [PinCodePreferences shared].isBiometricsSet;
+            switchCell.mxkSwitch.onTintColor = ThemeService.shared.theme.tintColor;
             switchCell.mxkSwitch.enabled = [PinCodePreferences shared].isBiometricsAvailable;
             [switchCell.mxkSwitch addTarget:self action:@selector(enableBiometricsSwitchValueChanged:) forControlEvents:UIControlEventValueChanged];
             

@@ -317,7 +317,10 @@ extension EnterNewRoomDetailsViewController: UITableViewDataSource {
             cell.detailTextLabel?.font = .systemFont(ofSize: 16)
             cell.textLabel?.text = row.text
             if row.accessoryType == .checkmark {
-                cell.accessoryView = UIImageView(image: Asset.Images.checkmark.image)
+                //To tint the check image with the theme color
+                let checkIcon = UIImage(named: "checkmark")?.withRenderingMode(.alwaysTemplate)
+                cell.accessoryView = UIImageView(image: checkIcon)
+                cell.accessoryView?.tintColor = theme.tintColor
             } else {
                 cell.accessoryView = nil
                 cell.accessoryType = row.accessoryType

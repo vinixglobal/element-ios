@@ -343,7 +343,7 @@ final class EnterPinCodeViewController: UIViewController {
                     if error {
                         imageView.image = Asset.Images.placeholder.image.vc_tintedImage(usingColor: self.theme.noticeColor)
                     } else {
-                        imageView.image = Asset.Images.placeholder.image
+                        imageView.image = Asset.Images.placeholder.image.vc_tintedImage(usingColor: self.theme.tintColor)
                     }
                 } else {
                     imageView.image = Asset.Images.selectionUntick.image

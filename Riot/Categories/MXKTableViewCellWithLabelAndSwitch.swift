@@ -23,6 +23,7 @@ extension MXKTableViewCellWithLabelAndSwitch: Themable {
 
     func update(theme: Theme) {
        mxkLabel.textColor = theme.textPrimaryColor
+        mxkSwitch.onTintColor = theme.tintColor
        backgroundColor = theme.backgroundColor
        contentView.backgroundColor = .clear
    }
