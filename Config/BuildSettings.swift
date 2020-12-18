@@ -107,13 +107,9 @@ final class BuildSettings: NSObject {
     // Paths for URLs that will considered as Matrix permalinks. Those permalinks are opened within the app
     static let matrixPermalinkPaths: [String: [String]] = [
         "staging.vinix.im": [],
-        "staging.vinix.im": [],
         "develop.vinix.im": [],
         "mobile.vinix.im": [""],
         // Historical ones
-        "vinix.im": ["/app", "/staging", "/develop"],
-        "vinix.im": ["/app", "/staging", "/develop"],
-        "vinix.im": ["/app", "/staging", "/develop"],
         "vinix.im": ["/app", "/staging", "/develop"],
         // Official Matrix ones
         "matrix.to": ["/"],
